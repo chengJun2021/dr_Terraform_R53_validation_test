@@ -1,13 +1,4 @@
-#ÉèÖÃAWS×÷ÓÃÇøÓò¼°·şÎñÉÌ
-provider "aws" {
-access_key = "AKIAS3O6SUKLYKULUE5L"
-
-secret_key = "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"
-
-region = "ap-southeast-2"
-
-}
-#µÇÂ¼Terraform Cloud ²¢´æ´¢×´Ì¬
+#ç™»å½•Terraform Cloud å¹¶å­˜å‚¨çŠ¶æ€
 terraform {
   backend "remote" {
     organization = "datareachable-watson"
@@ -27,7 +18,7 @@ terraform {
 
   required_version = ">= 0.14.9"
 }
-#´´½¨S3´æ´¢Í°
+#åˆ›å»ºS3å­˜å‚¨æ¡¶
 resource "aws_s3_bucket" "dr" {  
   bucket = "worker-tf-test-bucket" 
   acl    = "private" 
@@ -37,7 +28,7 @@ resource "aws_s3_bucket" "dr" {
     Environment = "WATSON-Dev"
   }
 }
-#´´½¨R53 ½âÎö¼ÇÂ¼
+#åˆ›å»ºR53 è§£æè®°å½•
 data "aws_route53_zone" "rwasm_net" {
   name = "rwasm.net."
   #private_zone = true
